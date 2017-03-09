@@ -2,6 +2,10 @@
   display: none !important;
 }
 
+img {
+  display: block;
+}
+
 .no-trump {
   background-color: red;
   color: white;

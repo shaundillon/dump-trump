@@ -1,12 +1,11 @@
 import {recognize} from './services/FaceApi';
-import {convertToCat} from './actions/cat';
-import {nope} from './actions/nope';
+import {actionButtons} from './components/actionButtons';
 
 const images = document.getElementsByTagName('img');
 const cat = 'https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg';
 
 const checkImageForTrump = (image) => {
-  return recognize(image.currentSrc)
+  return recognize(image.src)
     .then(res => res.json())
     .then(match => {
       if(match.images && match.images[0].transaction.status === 'success') {
@@ -16,12 +15,14 @@ const checkImageForTrump = (image) => {
     });
 }
 
-const trumpedImages = () => {
+const renderButtons = () => {
   const upper = images.length < 60 ? images.length : 60;
   for(var i=0; i < upper; i++) {
     checkImageForTrump(images[i])
-      .then(res => res ? nope(res) : false);
+      .then(image => {
+        image ? actionButtons(image) : false
+      });
   }
 }
 
-trumpedImages();
+renderButtons();
