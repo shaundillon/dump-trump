@@ -1,4 +1,4 @@
-# Nope that dope
+# Dump Trump
 Browser extension to block or 'enhance' images of Donald Trump.
 
 ## Why?
