@@ -1,5 +1,13 @@
 {
   "manifest_version": 2,
-  "name": "Nope that dope",
-  "version": "0.1"
+  "name": "Dump Trump",
+  "version": "0.1",
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": ["app.js"]
+    }
+  ]
 }
