@@ -5,9 +5,11 @@ const images = document.getElementsByTagName('img');
 const cat = 'https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg';
 
 const checkImageForTrump = (image) => {
+  image.classList.add('loading');
   return recognize(image.src)
     .then(res => res.json())
     .then(match => {
+      image.classList.remove('loading');
       if(match.images && match.images[0].transaction.status === 'success') {
         return image;
       }

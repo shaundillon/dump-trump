@@ -6,6 +6,10 @@ img {
   display: block;
 }
 
+.loading {
+  opacity: 0.8;
+}
+
 .no-trump {
   background-color: red;
   color: white;
