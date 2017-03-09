@@ -1,0 +1,17 @@
+.hide {
+  display: none !important;
+}
+
+.no-trump {
+  background-color: red;
+  color: white;
+  font-size: 100px;
+  font-family: Impact, arial, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 10px solid darkred;
+  box-sizing: border-box;
+}

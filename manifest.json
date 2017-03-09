@@ -8,6 +8,12 @@
         "<all_urls>"
       ],
       "js": ["app.js"]
+    },
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "css": ["style.css"]
     }
   ]
 }
