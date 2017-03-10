@@ -6,5 +6,8 @@ export const nope = (image) => {
   image.classList.add('hide');
   bigNope.style.width = `${image.width}px`;
   bigNope.style.height = `${image.height}px`;
+  bigNope.style.position = 'absolute';
+  bigNope.style.top = `${image.offsetTop}px`;
+  bigNope.style.left = `${image.offsetLeft}px`;
   image.parentNode.insertBefore(bigNope, image.nextSibling);
 }

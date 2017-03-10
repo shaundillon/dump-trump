@@ -17,7 +17,7 @@ export const actionButtons = (image) => {
   btnContainer.style.height = `${image.height}px`;
   btnContainer.style.position = 'absolute';
   btnContainer.style.top = `${image.offsetTop}px`;
-  btnContainer.style.left = `${image.offsetleft}px`;
+  btnContainer.style.left = `${image.offsetLeft}px`;
 
   nopeBtn.appendChild(nopeText);
   catBtn.appendChild(catText);
