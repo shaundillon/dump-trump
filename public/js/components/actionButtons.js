@@ -13,6 +13,9 @@ export const actionButtons = (image) => {
   const dismissBtn =  document.createElement('button');
   const dismissText = document.createTextNode('DISMISS');
 
+  const warning = document.createElement('p');
+  const warningText = document.createTextNode('DONALD DETECTED');
+
   btnContainer.style.width = `${image.width}px`;
   btnContainer.style.height = `${image.height}px`;
   btnContainer.style.position = 'absolute';
@@ -22,12 +25,14 @@ export const actionButtons = (image) => {
   nopeBtn.appendChild(nopeText);
   catBtn.appendChild(catText);
   dismissBtn.appendChild(dismissText);
+  warning.appendChild(warningText);
 
   btnContainer.classList.add('trump-btn-container');
   nopeBtn.classList.add('trump-btn');
   catBtn.classList.add('trump-btn');
   dismissBtn.classList.add('trump-btn');
 
+  btnContainer.appendChild(warning);
   btnContainer.appendChild(nopeBtn);
   btnContainer.appendChild(catBtn);
   btnContainer.appendChild(dismissBtn);

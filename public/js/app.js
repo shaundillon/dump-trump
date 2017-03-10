@@ -11,8 +11,13 @@ const checkImageForTrump = (image) => {
     .then(res => res.json())
     .then(match => {
       image.classList.remove('loading');
-      if(match.images && match.images[0].transaction.status === 'success') {
-        return image;
+      if(match.images) {
+        for(var i=0; i < match.images.length; i++) {
+          if(match.images[i].transaction.status === 'success') {
+            return image;
+          }
+        }
+        return false;
       }
       return false;
     });
