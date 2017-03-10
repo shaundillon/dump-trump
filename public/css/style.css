@@ -23,3 +23,26 @@ img {
   border: 10px solid darkred;
   box-sizing: border-box;
 }
+
+.trump-btn-container {
+  background-color: rgba(255, 0, 0, 0.3);
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.trump-btn {
+  border: 0;
+  border-bottom: 5px solid darkred;
+  background-color: red;
+  color: white;
+  font-family: Impact, arial, sans-serif;
+  font-size: 30px;
+}
+
+.trump-btn:hover {
+  cursor: pointer;
+  border-bottom: 2px solid darkred;
+  transform: translateY(3px);
+}

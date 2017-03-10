@@ -1,5 +1,6 @@
 import {recognize} from './services/FaceApi';
 import {actionButtons} from './components/actionButtons';
+import {preloadCats} from './actions/cat';
 
 const images = document.getElementsByTagName('img');
 const cat = 'https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg';
@@ -17,14 +18,34 @@ const checkImageForTrump = (image) => {
     });
 }
 
-const renderButtons = () => {
+const checkImages = () => {
   const upper = images.length < 60 ? images.length : 60;
   for(var i=0; i < upper; i++) {
     checkImageForTrump(images[i])
       .then(image => {
-        image ? actionButtons(image) : false
+        if(image) {
+          actionButtons(image);
+          preloadCats(image)
+        }
       });
   }
 }
 
-renderButtons();
+const clearOverlays = () => {
+  const overlays = document.getElementsByClassName('trump-btn-container');
+
+  while(overlays.length) {
+    overlays[0].parentNode.removeChild(overlays[0]);
+  }
+}
+
+
+// content.js
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+    if( request.message === "look_for_trump" ) {
+      clearOverlays();
+      checkImages();
+    }
+  }
+);

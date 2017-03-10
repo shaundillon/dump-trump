@@ -3,28 +3,46 @@ import {convertToCat} from '../actions/cat';
 
 export const actionButtons = (image) => {
   const btnContainer = document.createElement('div');
-  btnContainer.classList.add('trump-btn-container');
+
   const nopeBtn = document.createElement('button');
   const nopeText = document.createTextNode('NOPE');
+
   const catBtn =  document.createElement('button');
   const catText = document.createTextNode('CAT');
+
+  const dismissBtn =  document.createElement('button');
+  const dismissText = document.createTextNode('DISMISS');
+
+  btnContainer.style.width = `${image.width}px`;
+  btnContainer.style.height = `${image.height}px`;
+  btnContainer.style.position = 'absolute';
+  btnContainer.style.top = `${image.offsetTop}px`;
+  btnContainer.style.left = `${image.offsetleft}px`;
+
   nopeBtn.appendChild(nopeText);
   catBtn.appendChild(catText);
+  dismissBtn.appendChild(dismissText);
+
+  btnContainer.classList.add('trump-btn-container');
   nopeBtn.classList.add('trump-btn');
   catBtn.classList.add('trump-btn');
+  dismissBtn.classList.add('trump-btn');
+
   btnContainer.appendChild(nopeBtn);
   btnContainer.appendChild(catBtn);
-  btnContainer.style.width = `${image.width}px`;
-  btnContainer.style.position = 'absolute';
-  btnContainer.style.top = `${(image.offsetTop + image.height) - 20}px`;
-
+  btnContainer.appendChild(dismissBtn);
 
   nopeBtn.onclick = () => {
     nope(image);
     btnContainer.parentNode.removeChild(btnContainer);
   };
+
   catBtn.onclick = () => {
     convertToCat(image);
+    btnContainer.parentNode.removeChild(btnContainer);
+  };
+
+  dismissBtn.onclick = () => {
     btnContainer.parentNode.removeChild(btnContainer);
   };
 
